@@ -1,0 +1,107 @@
+# Evaluation set: free-form idea phrasings that differ from the demo prompts.
+# expect_top: initiative name that must be the top non-idea match
+# min_category: minimum category for expect_top (near_duplicate > strong_overlap > partial_overlap > related)
+# max_category: optional ceiling for named initiatives (false-positive guards)
+# lifecycle: expected lifecycle stage of expect_top
+# no_match: true when nothing should reach partial_overlap or above
+- id: appsec-paraphrase-1
+  idea: Tool that automatically flags security bugs in our source code and proposes patches to developers.
+  expect_top: SecureGuard AI
+  min_category: strong_overlap
+- id: appsec-paraphrase-2
+  idea: Run static analysis and open-source dependency checks in CI and comment on pull requests with remediation advice.
+  expect_top: SecureGuard AI
+  min_category: strong_overlap
+- id: fraud-realtime
+  idea: Detect fraudulent card payments instantly at authorisation time using a machine learning model so they can be declined.
+  max_category: {CaseLens Fraud Investigation Assistant: partial_overlap}
+  max_overall_category: partial_overlap
+- id: fraud-investigation
+  idea: An assistant that helps fraud investigators summarise case evidence and draft SAR narratives.
+  expect_top: CaseLens Fraud Investigation Assistant
+  min_category: strong_overlap
+- id: contracts
+  idea: Extract renewal dates and termination clauses from supplier contracts automatically.
+  expect_top: DocuMind Contract Clause Extractor
+  min_category: strong_overlap
+  lifecycle: abandoned
+- id: access-requests
+  idea: Self-service portal where staff request application permissions and their manager approves them without emailing IT.
+  expect_top: AccessFlow
+  min_category: strong_overlap
+  lifecycle: deployed
+- id: data-observability
+  idea: Alert data owners when warehouse tables are stale, row counts drop or schemas change unexpectedly.
+  expect_top: Pipeline Sentinel
+  min_category: strong_overlap
+- id: genbi
+  idea: Let business users ask questions about our data in plain English and get charts back.
+  expect_top: GenBI Insights
+  min_category: strong_overlap
+- id: onboarding
+  idea: A chatbot that answers new joiners' HR policy questions and tracks their onboarding tasks for the first month.
+  expect_top: Onboarding Buddy
+  min_category: strong_overlap
+- id: incident
+  idea: During production outages, correlate alerts, logs and recent changes to suggest the probable root cause.
+  expect_top: OpsSleuth Incident Investigation Agent
+  min_category: strong_overlap
+- id: knowledge
+  idea: Employees should be able to ask questions about internal policies and get answers with citations from the intranet.
+  expect_top: AskNorthbridge Knowledge Assistant
+  min_category: strong_overlap
+  lifecycle: deployed
+- id: compliance-docs
+  idea: Generate SOX control narratives and collect audit evidence packs automatically.
+  expect_top: ControlScribe
+  min_category: strong_overlap
+- id: api-monitoring
+  idea: Monitor partner API latency and error rates with synthetic checks and alert on SLA breaches.
+  expect_top: API Sentinel
+  min_category: strong_overlap
+  max_category: {Pipeline Sentinel: related}
+- id: contact-routing
+  idea: Route incoming customer emails and chats to the right contact centre queue based on intent.
+  expect_top: SmartRoute
+  min_category: strong_overlap
+- id: doc-labels
+  idea: Automatically classify documents in SharePoint and apply retention and sensitivity labels.
+  expect_top: LabelSmart Document Classification
+  min_category: strong_overlap
+- id: test-generation
+  idea: Use AI to generate unit tests for our services and detect flaky tests in CI.
+  expect_top: TestForge
+  min_category: strong_overlap
+- id: cloud-posture
+  idea: Detect public storage buckets and overly permissive IAM roles across our AWS accounts.
+  expect_top: Cloud Watchtower
+  min_category: strong_overlap
+  max_category: {SecureGuard AI: related}
+- id: code-review
+  idea: An AI reviewer that comments on pull requests about readability and maintainability.
+  expect_top: ReviewPilot
+  min_category: strong_overlap
+  max_category: {Secure Code Review Board: related, SecureGuard AI: partial_overlap}
+- id: governance-board
+  idea: A governance board that signs off high-risk changes against a security checklist and records attestations.
+  expect_top: Secure Code Review Board
+  min_category: strong_overlap
+  max_category: {ReviewPilot: related}
+- id: cloud-cost
+  idea: Recommend rightsizing and clean up idle resources to reduce our cloud bill.
+  expect_top: SpendScope Cloud Cost Advisor
+  min_category: strong_overlap
+- id: vendor-risk
+  idea: Automate pre-filling third-party vendor risk questionnaires from previous assessments.
+  expect_top: Vendor Risk Questionnaire Automation
+  min_category: strong_overlap
+  lifecycle: paused
+- id: desk-booking
+  idea: A mobile app for booking desks and meeting rooms in the office.
+  no_match: true
+- id: carbon-travel
+  idea: Estimate CO2 emissions from staff flights and hotel stays and suggest greener options.
+  no_match: true
+- id: canteen
+  idea: Pre-order lunch from the staff canteen and reduce food waste.
+  no_match: true
